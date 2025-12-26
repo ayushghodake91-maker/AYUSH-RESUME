@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayush Ghodake - Digital Marketing Professional</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-weight: 600;
+            color: #764ba2;
+        }
+
+        .job-date {
+            color: #666;
+            font-style: italic;
+            font-size: 0.9em;
+        }
+
+        .company {
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .skill-category h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .skill-category p {
+            font-size: 0.9em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .summary {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            font-size: 1.05em;
+            line-height: 1.8;
+            border-left: 4px solid #764ba2;
+        }
+
+        .cert-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .cert-item {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .content {
+                padding: 25px;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .print-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 20px auto;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .print-btn:hover {
+            background: #764ba2;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .container {
+                box-shadow: none;
+            }
+
+            .print-btn {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AYUSH GHODAKE</h1>
+            <p style="font-size: 1.2em; margin-top: 10px;">Digital Marketing Professional</p>
+            <div class="contact-info">
+                <span>📍 Pune, Maharashtra, India</span><br>
+                <a href="mailto:ayushghodake91@gmail.com">✉️ ayushghodake91@gmail.com</a>
+                <a href="tel:+917758046516">📞 +91-7758046516</a>
+                <a href="https://linkedin.com/in/ayush-ghodake" target="_blank">💼 LinkedIn</a>
+            </div>
+        </header>
+
+        <div class="content">
+            <button class="print-btn" onclick="window.print()">Download PDF</button>
+
+            <section>
+                <h2>Professional Summary</h2>
+                <div class="summary">
+                    Results-driven Digital Marketing Professional with hands-on expertise in SEO, social media marketing, paid advertising (Meta & Google Ads), and marketing analytics. Proven ability to develop data-backed campaigns that drive measurable ROI, generate qualified leads, and strengthen brand awareness. Skilled in leveraging AI-powered marketing tools, Google Analytics, Meta Ads Manager, and automation platforms to optimize campaign performance. Passionate about combining creative storytelling with analytical insights to deliver impactful digital experiences and business growth.
+                </div>
+            </section>
+
+            <section>
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Digital Marketing</h4>
+                        <p>SEO/SEM, Social Media Marketing, Meta Ads, Google Ads, Content Marketing, Email Marketing</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Analytics & Tools</h4>
+                        <p>Google Analytics, Google Search Console, Looker Studio, Meta Ads Manager, Semrush, Ubersuggest</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Marketing Platforms</h4>
+                        <p>LinkedIn Campaign Manager, Hootsuite, Buffer, Mailchimp, Brevo, ActiveCampaign, Zapier</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Creative Tools</h4>
+                        <p>Canva, Figma, AdCreative.ai, CapCut, InShot, Yoast SEO</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>AI & Automation</h4>
+                        <p>ChatGPT, Jasper.ai, Marketing Automation, AI-driven Campaign Strategy</p>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Core Competencies</h4>
+                        <p>Data Analytics, Campaign Optimization, Lead Generation, A/B Testing, ROI Analysis, Cross-Channel Strategy</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Professional Experience</h2>
+                
+                <div style="margin-bottom: 30px;">
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Business Development Executive</h3>
+                            <p class="company">The Enterprise Globe Magazine, Pune, Maharashtra, India</p>
+                        </div>
+                        <span class="job-date">September 2025 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Spearhead digital marketing initiatives to expand brand reach and drive business growth for enterprise-focused publication serving B2B audiences</li>
+                        <li>Develop and execute comprehensive lead generation strategies across multiple channels including LinkedIn, Meta platforms, email marketing, and content syndication</li>
+                        <li>Manage client relationships and strategic partnerships, delivering customized marketing solutions aligned with business objectives and revenue targets</li>
+                        <li>Analyze campaign performance metrics using Google Analytics and marketing dashboards to optimize conversion rates, reduce CAC, and improve ROI by 25%+</li>
+                        <li>Collaborate with editorial and design teams to create compelling content that resonates with C-suite executives and drives measurable engagement</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="job-header">
+                        <div>
+                            <h3 class="job-title">Freelance Digital Marketing Specialist</h3>
+                            <p class="company">Multiple Brand Partnerships & Client Projects (Remote)</p>
+                        </div>
+                        <span class="job-date">January 2025 – Present</span>
+                    </div>
+                    <ul>
+                        <li>Execute ROI-focused marketing campaigns across industries, improving online visibility and generating qualified leads for startup and SMB clients</li>
+                        <li>Design and launch Meta (Facebook & Instagram) ad campaigns with strategic audience targeting, achieving cost-efficient customer acquisition</li>
+                        <li>Conduct comprehensive SEO audits and keyword research using Semrush and Ubersuggest, resulting in improved organic search rankings and traffic growth</li>
+                        <li>Set up and optimize Google Ads campaigns (Search & Display), managing budget allocation and bid strategies to maximize ROAS</li>
+                        <li>Implement email marketing campaigns using Mailchimp and Brevo, leveraging AI-powered automation to improve open rates and conversions</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Key Projects & Achievements</h2>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3>AI-Powered Campaign Strategy Project</h3>
+                    <p class="job-date">September 2025 – October 2025</p>
+                    <ul>
+                        <li>Leveraged ChatGPT and Jasper.ai to generate high-performing ad copies, blog content, and email sequences, reducing content creation time by 40%</li>
+                        <li>Designed data-driven ad creatives using Canva AI and AdCreative.ai, implementing A/B testing methodology to optimize click-through rates</li>
+                        <li>Automated email marketing workflows with Mailchimp AI, achieving 35% improvement in engagement metrics and subscriber retention</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>SEO & Analytics Optimization Initiative</h3>
+                    <p class="job-date">Ongoing</p>
+                    <ul>
+                        <li>Performed comprehensive on-page SEO optimization using Yoast SEO and WordPress, improving site structure and content discoverability</li>
+                        <li>Built custom marketing dashboards in Looker Studio for real-time performance reporting and stakeholder communication</li>
+                        <li>Successfully integrated marketing automation tools (Zapier, Hootsuite) to streamline workflow efficiency and cross-platform campaign management</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="job-header">
+                    <div>
+                        <h3>Higher Secondary Certificate (12th Science)</h3>
+                        <p class="company">Sir Parashurambhau College, Pune, India</p>
+                    </div>
+                    <span class="job-date">June 2024 – May 2025</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Certifications</h2>
+                <div class="cert-list">
+                    <span class="cert-item">Google Digital Marketing</span>
+                    <span class="cert-item">Meta Digital Marketing Associate</span>
+                    <span class="cert-item">Google Ads Certification</span>
+                    <span class="cert-item">HubSpot Content Marketing</span>
+                    <span class="cert-item">Semrush Keyword Research</span>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
