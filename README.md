@@ -658,66 +658,29 @@
                 </ul>
             </section>
             
-            <div class="download-section">
-                <h2 style="color: white; border: none; margin-bottom: 10px;">Download My Resume</h2>
-                <p style="font-size: 1.1em; margin-bottom: 20px;">Get a comprehensive PDF version of my professional experience and qualifications</p>
-                <!-- Button now calls downloadResume(event) and there's also a fallback direct link -->
-                <button class="download-btn" onclick="downloadResume(event)">⬇️ Download Resume PDF</button>
-                <p style="margin-top:10px; font-size:0.9em; opacity:0.9;">Or open directly: <a href="./AYUSH%20GHODAKE%20CV.pdf" style="color:white; font-weight:700;">AYUSH GHODAKE CV.pdf</a></p>
+             <!-- RESUME SECTION -->
+    <section class="section">
+        <h2>My Resume</h2>
+
+        <div class="resume-box">
+            <p>
+                View or download my latest professional resume in PDF format.
+            </p>
+
+            <div class="resume-actions">
+                <a href="Ayush_Ghodake_Resume.pdf" target="_blank" class="btn btn-view">
+                    👁 View Resume
+                </a>
+
+                <a href="Ayush_Ghodake_Resume.pdf" download class="btn btn-download">
+                    ⬇ Download PDF
+                </a>
             </div>
         </div>
-        
-        <footer>
-            <p>&copy; 2026 Ayush Ghodake. All rights reserved.</p>
-            <p style="margin-top: 10px; opacity: 0.8;">Designed to showcase data-driven digital marketing expertise</p>
-        </footer>
-    </div>
-    
-    <script>
-        async function downloadResume(event) {
-            // Prevent multiple clicks
-            const btn = event.currentTarget || event.target;
-            const originalText = btn.innerHTML;
-            try {
-                btn.disabled = true;
-                btn.innerHTML = 'Downloading...';
 
-                // Use encoded filename for the PDF in the repo root
-                const pdfPath = './' + encodeURIComponent('AYUSH GHODAKE CV.pdf');
-                const response = await fetch(pdfPath);
-                if (!response.ok) throw new Error('Network response was not ok');
-
-                const blob = await response.blob();
-                const url = window.URL.createObjectURL(blob);
-
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'Ayush_Ghodake_Resume.pdf';
-                document.body.appendChild(a);
-                a.click();
-
-                // Cleanup
-                window.URL.revokeObjectURL(url);
-                document.body.removeChild(a);
-
-                // Success UI
-                btn.innerHTML = '✓ Resume Downloaded!';
-                btn.style.background = '#34a853';
-                btn.style.color = 'white';
-
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.style.background = 'white';
-                    btn.style.color = '#ea4335';
-                }, 3000);
-            } catch (err) {
-                console.error(err);
-                alert('Sorry — the download failed. You can open the PDF directly using the link below or visit the repository to download it.');
-                btn.innerHTML = originalText;
-            } finally {
-                btn.disabled = false;
-            }
-        }
+        <!-- PDF VIEWER -->
+        <iframe src="Ayush_Ghodake_Resume.pdf"></iframe>
+    </section>
         
         // Smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
