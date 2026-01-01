@@ -415,7 +415,7 @@
                     </div>
                     <div class="contact-item">
                         <span>📱</span>
-                        <span>7758046516</span>
+                        <span>7758XXXXXX</span>
                     </div>
                     <div class="contact-item">
                         <span>📍</span>
@@ -426,7 +426,7 @@
                 <div class="social-links">
                     <a href="https://ayushghodake91-maker.github.io" class="social-btn" target="_blank">🌐 Website</a>
                     <a href="https://github.com/ayushghodake91-maker" class="social-btn" target="_blank">GitHub</a>
-                    <a href="https://www.linkedin.com/in/ayush-ghodake-46" class="social-btn" target="_blank">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/ayush-ghodake-46101035b" class="social-btn" target="_blank">LinkedIn</a>
                     <a href="https://www.youtube.com/@DollarWise9" class="social-btn" target="_blank">YouTube</a>
                     <a href="https://twitter.com/AyushGhoda90403" class="social-btn" target="_blank">X (Twitter)</a>
                 </div>
