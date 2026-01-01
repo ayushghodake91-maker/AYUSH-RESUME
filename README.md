@@ -661,7 +661,9 @@
             <div class="download-section">
                 <h2 style="color: white; border: none; margin-bottom: 10px;">Download My Resume</h2>
                 <p style="font-size: 1.1em; margin-bottom: 20px;">Get a comprehensive PDF version of my professional experience and qualifications</p>
-                <button class="download-btn" onclick="downloadResume()">⬇️ Download Resume PDF</button>
+                <!-- Button now calls downloadResume(event) and there's also a fallback direct link -->
+                <button class="download-btn" onclick="downloadResume(event)">⬇️ Download Resume PDF</button>
+                <p style="margin-top:10px; font-size:0.9em; opacity:0.9;">Or open directly: <a href="./AYUSH%20GHODAKE%20CV.pdf" style="color:white; font-weight:700;">AYUSH GHODAKE CV.pdf</a></p>
             </div>
         </div>
         
@@ -672,110 +674,49 @@
     </div>
     
     <script>
-        function downloadResume() {
-            // Create a printable version of the resume
-            const resumeContent = `
-AYUSH GHODAKE
-Digital Marketing Specialist | Growth Strategist | AI-Powered Campaign Expert
-
-Contact Information:
-Email: ayushghodake91@gmail.com
-Phone: 7758046516
-Location: Pune, Maharashtra
-Website: https://ayushghodake91-maker.github.io
-LinkedIn: https://www.linkedin.com/in/ayush-ghodake-46
-
-KEY ACHIEVEMENTS:
-• Improved ROI by 25%+ through data-driven campaign optimization
-• Reduced content creation time by 40% using AI-powered tools
-• Increased email engagement by 35% with automated workflows
-• Managed 100+ successful digital marketing campaigns
-
-PROFESSIONAL EXPERIENCE:
-
-Business Development Executive | Sep 2025 – Present
-The Enterprise Globe Magazine, Pune, Maharashtra
-• Spearhead digital marketing initiatives, expanding brand reach for B2B enterprise publication
-• Collaborate with editorial teams to create compelling content for C-suite executives, driving measurable engagement
-• Manage end-to-end social media strategies across Facebook, Instagram, and LinkedIn, increasing engagement rates
-• Analyze campaign performance using Google Analytics, optimizing conversion rates and improving ROI by 25%+
-• Set up and optimize Google Ads campaigns (Search & Display), managing budgets to maximize ROAS
-• Design and launch Meta ad campaigns with strategic targeting, achieving cost-efficient customer acquisition
-
-Freelance Digital Marketing Specialist | Jan 2025 – Present
-Self-Employed, Pune, Maharashtra
-• Execute ROI-focused campaigns across multiple industries, improving visibility and generating qualified leads for startups and SMBs
-• Conduct comprehensive SEO audits using Semrush and Ubersuggest, improving organic rankings and traffic growth
-• Develop comprehensive lead generation strategies across LinkedIn, Meta, email marketing, and content syndication
-• Implement data-driven strategies using marketing automation to accelerate revenue growth
-• Leveraged ChatGPT and Jasper.ai to generate high-performing content, reducing creation time by 40%
-• Designed data-driven ad creatives using Canva AI and AdCreative.ai with A/B testing to optimize CTR
-• Automated email workflows with Mailchimp AI, achieving 35% improvement in engagement metrics
-• Spearhead digital marketing initiatives, expanding brand reach for B2B enterprise publication
-• Collaborate with editorial teams to create compelling content for C-suite executives, driving measurable engagement
-• Manage end-to-end social media strategies across Facebook, Instagram, and LinkedIn, increasing engagement rates
-• Analyze campaign performance using Google Analytics, optimizing conversion rates and improving ROI by 25%+
-• Set up and optimize Google Ads campaigns (Search & Display), managing budgets to maximize ROAS
-• Design and launch Meta ad campaigns with strategic targeting, achieving cost-efficient customer acquisition
-
-TECHNICAL SKILLS:
-Marketing Platforms: Google Ads, Google Analytics, Google Tag Manager, Google Search Console, Facebook Ads Manager, LinkedIn Campaign Manager, Twitter Ads
-SEO Tools: SEMrush, Ahrefs, Moz Pro, Screaming Frog, Ubersuggest
-Marketing Automation: HubSpot, Mailchimp, ActiveCampaign, Klaviyo
-Lead Generation: Apollo.io, Hunter.io, ZoomInfo, LinkedIn Sales Navigator
-CRM: Salesforce, Pipedrive, Zoho CRM
-Web Platforms: WordPress, Shopify, WooCommerce
-Design: Canva, Adobe Creative Suite
-Optimization: Hotjar, Crazy Egg, Optimizely
-
-CERTIFICATIONS:
-• Google Digital Marketing Certification – Google Digital Garage
-• Google Ads Certification – Google Skillshop
-• Meta Digital Marketing Associate – Meta Blueprint
-• HubSpot Content Marketing Certification – HubSpot Academy
-• Keyword Research Essentials with Semrush – Semrush Academy
-
-EDUCATION:
-Higher Secondary (12th Science) | May 2025
-Sir Parashurambhau College, Pune, Maharashtra
-
-FEATURED PROJECT:
-AI-Powered Campaign Strategy Project
-• Leveraged ChatGPT and Jasper.ai to develop high-performing marketing content
-• Implemented AI-driven ad creative optimization using Canva AI and AdCreative.ai
-• Achieved 40% reduction in content creation time while maintaining quality
-• Improved CTR through data-driven A/B testing methodologies
-
-Last Updated: January 1, 2026
-`;
-
-            // Create a blob with the resume content
-            const blob = new Blob([resumeContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            
-            // Create a temporary link and trigger download
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Ayush_Ghodake_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            
-            // Cleanup
-            window.URL.revokeObjectURL(url);
-            document.body.removeChild(a);
-            
-            // Show success message
-            const btn = event.target;
+        async function downloadResume(event) {
+            // Prevent multiple clicks
+            const btn = event.currentTarget || event.target;
             const originalText = btn.innerHTML;
-            btn.innerHTML = '✓ Resume Downloaded!';
-            btn.style.background = '#34a853';
-            btn.style.color = 'white';
-            
-            setTimeout(() => {
+            try {
+                btn.disabled = true;
+                btn.innerHTML = 'Downloading...';
+
+                // Use encoded filename for the PDF in the repo root
+                const pdfPath = './' + encodeURIComponent('AYUSH GHODAKE CV.pdf');
+                const response = await fetch(pdfPath);
+                if (!response.ok) throw new Error('Network response was not ok');
+
+                const blob = await response.blob();
+                const url = window.URL.createObjectURL(blob);
+
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'Ayush_Ghodake_Resume.pdf';
+                document.body.appendChild(a);
+                a.click();
+
+                // Cleanup
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+                // Success UI
+                btn.innerHTML = '✓ Resume Downloaded!';
+                btn.style.background = '#34a853';
+                btn.style.color = 'white';
+
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = 'white';
+                    btn.style.color = '#ea4335';
+                }, 3000);
+            } catch (err) {
+                console.error(err);
+                alert('Sorry — the download failed. You can open the PDF directly using the link below or visit the repository to download it.');
                 btn.innerHTML = originalText;
-                btn.style.background = 'white';
-                btn.style.color = '#ea4335';
-            }, 3000);
+            } finally {
+                btn.disabled = false;
+            }
         }
         
         // Smooth scroll behavior
